@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    {% include "navbar.html" %}
+    <h1>Welcome {{name}}</h1>
+    <hr>
+    {% if isActive %}
+    <div>
+        <h1>Student Data</h1>
+        <h2>{{student.student_name}}</h2>
+        <h2>{{student.student_college}}</h2>
+        <h2>{{student.student_city}}</h2>
+        <hr>
+    </div>
+    {% endif %}
+
+    {% for p in list_of_programs %}
+    <h3>{{p}}</h3>
+    {% endfor %}
+
+
+</body>
+</html>
