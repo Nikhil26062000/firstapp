@@ -1,28 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Home</title>
-</head>
-<body>
+  </head>
+  <body>
     {% include "navbar.html" %}
     <h1>Welcome {{name}}</h1>
-    <hr>
+    <form action="/index/" method="post">
+        {% csrf_token %}
+      <input type="text" name="check" />
+      <button type="submit">send</button>
+    </form>
+    <hr />
     {% if isActive %}
     <div>
-        <h1>Student Data</h1>
-        <h2>{{student.student_name}}</h2>
-        <h2>{{student.student_college}}</h2>
-        <h2>{{student.student_city}}</h2>
-        <hr>
+      <h1>Student Data</h1>
+      <h2>{{student.student_name}}</h2>
+      <h2>{{student.student_college}}</h2>
+      <h2>{{student.student_city}}</h2>
+      <hr />
     </div>
-    {% endif %}
-
-    {% for p in list_of_programs %}
+    {% endif %} {% for p in list_of_programs %}
     <h3>{{p}}</h3>
     {% endfor %}
-
-
-</body>
+  </body>
 </html>
