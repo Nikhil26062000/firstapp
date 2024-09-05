@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import emp
+from .models import emp,Testimonial
 
 # Create your views here.
 def emp_home(request):
@@ -72,3 +72,8 @@ def do_update_emp(request, emp_id):
 
         
     return redirect("/emp/home")
+
+
+def testimonial(request):
+    testi = Testimonial.objects.all() 
+    return render(request,"emp/testimonial.html",{"testi":testi})
